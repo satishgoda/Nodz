@@ -1,12 +1,16 @@
 from Qt import QtCore
 import nodz_main
 
+import sys
+from Qt import QtWidgets
+
+app = QtWidgets.QApplication(sys.argv)
+
 nodz = nodz_main.Nodz(None)
 # nodz.loadConfig(filePath='')
 nodz.initialize()
-nodz.show()
 
-
+#
 ######################################################################
 # Test signals
 ######################################################################
@@ -138,38 +142,41 @@ nodz.createAttribute(node=nodeC, name='Cattr7', index=-1, preset='attr_preset_3'
 
 nodz.createAttribute(node=nodeC, name='Cattr8', index=-1, preset='attr_preset_3',
                      plug=True, socket=False, dataType=int)
+#
 
+nodz.show()
+app.exec_()
 
-# Please note that this is a local test so once the graph is cleared
-# and reloaded, all the local variables are not valid anymore, which
-# means the following code to alter nodes won't work but saving/loading/
-# clearing/evaluating will.
-
-
-# Attributes Edition
-nodz.editAttribute(node=nodeC, index=0, newName=None, newIndex=-1)
-nodz.editAttribute(node=nodeC, index=-1, newName='NewAttrName', newIndex=None)
-
-# Attributes Deletion
-nodz.deleteAttribute(node=nodeC, index=-1)
-
-
-# Nodes Edition
-nodz.editNode(node=nodeC, newName='newNodeName')
-
-# Nodes Deletion
-nodz.deleteNode(node=nodeC)
-
-
-# Graph
-print nodz.evaluateGraph()
-
-nodz.saveGraph(filePath='Enter your path')
-
-nodz.clearGraph()
-
-nodz.loadGraph(filePath='Enter your path')
-
-
-
-
+#
+# # Please note that this is a local test so once the graph is cleared
+# # and reloaded, all the local variables are not valid anymore, which
+# # means the following code to alter nodes won't work but saving/loading/
+# # clearing/evaluating will.
+#
+#
+# # Attributes Edition
+# nodz.editAttribute(node=nodeC, index=0, newName=None, newIndex=-1)
+# nodz.editAttribute(node=nodeC, index=-1, newName='NewAttrName', newIndex=None)
+#
+# # Attributes Deletion
+# nodz.deleteAttribute(node=nodeC, index=-1)
+#
+#
+# # Nodes Edition
+# nodz.editNode(node=nodeC, newName='newNodeName')
+#
+# # Nodes Deletion
+# nodz.deleteNode(node=nodeC)
+#
+#
+# # Graph
+# print nodz.evaluateGraph()
+#
+# nodz.saveGraph(filePath='Enter your path')
+#
+# nodz.clearGraph()
+#
+# nodz.loadGraph(filePath='Enter your path')
+#
+# # nodz.debug()
+#
